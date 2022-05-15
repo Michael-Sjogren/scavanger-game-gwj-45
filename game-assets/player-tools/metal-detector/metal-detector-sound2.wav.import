@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/metal-detector-sound2.wav-0df5537a6527aba2dc4460d17b317256.sample"
+
+[deps]
+
+source_file="res://game-assets/player-tools/metal-detector/metal-detector-sound2.wav"
+dest_files=[ "res://.import/metal-detector-sound2.wav-0df5537a6527aba2dc4460d17b317256.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=true
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=true
+compress/mode=1
