@@ -13,15 +13,24 @@ data = PoolVector3Array( 46.875, -5.1134, -46.875, 50, -5.1134, -50, 50, -5.1134
 
 [node name="sand" instance=ExtResource( 1 )]
 
+[node name="SandPlane1" parent="." index="0"]
+use_in_baked_light = true
+
 [node name="StaticBody" type="StaticBody" parent="SandPlane1" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="SandPlane1/StaticBody" index="0"]
 shape = SubResource( 1 )
 
+[node name="SandPLane2" parent="." index="1"]
+use_in_baked_light = true
+
 [node name="StaticBody" type="StaticBody" parent="SandPLane2" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="SandPLane2/StaticBody" index="0"]
 shape = SubResource( 2 )
+
+[node name="SandPLane2001" parent="." index="2"]
+use_in_baked_light = true
 
 [node name="StaticBody" type="StaticBody" parent="SandPLane2001" index="0"]
 

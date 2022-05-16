@@ -13,14 +13,20 @@ _global_script_classes=[ {
 "class": "MovementController",
 "language": "GDScript",
 "path": "res://game-assets/classes/MovementController.gd"
+}, {
+"base": "Area",
+"class": "Treasure",
+"language": "GDScript",
+"path": "res://game-assets/treasure/Treasure.gd"
 } ]
 _global_script_class_icons={
-"MovementController": ""
+"MovementController": "",
+"Treasure": ""
 }
 
 [application]
 
-config/name="godotwildjam45"
+config/name="godotwildjam46"
 run/main_scene="res://game-assets/levels/TestLevel.tscn"
 config/icon="res://icon.png"
 
@@ -51,6 +57,22 @@ jump={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
  ]
 }
+dig={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+detect={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+3d_physics/layer_1="Default"
+3d_physics/layer_2="Interactables"
+3d_physics/layer_3="Player"
 
 [physics]
 

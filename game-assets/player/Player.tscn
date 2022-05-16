@@ -1,23 +1,246 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://game-assets/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://game-assets/player-tools/pickaxe/PickAxe.tscn" type="PackedScene" id=2]
 [ext_resource path="res://game-assets/player-tools/metal-detector/MetalDetector.tscn" type="PackedScene" id=3]
 [ext_resource path="res://game-assets/player/Head.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game-assets/crosshair/crosshair_material.tres" type="Material" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.423016
 
+[sub_resource type="Animation" id=5]
+resource_name = "DetectMetal"
+length = 0.4
+tracks/0/type = "bezier"
+tracks/0/path = NodePath("DetectorHolder:translation:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"points": PoolRealArray( -0.472188, -0.25, 0, 0.25, 0, -0.501122, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("DetectorHolder:translation:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 1.36276, -0.25, 0, 0.25, 0, 1.36276, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("DetectorHolder:translation:z")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.140098, -0.25, 0, 0.25, 0, -0.230148, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("DetectorHolder:rotation_degrees:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( 45, -0.25, 0, 0.25, 0, 45, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("DetectorHolder:rotation_degrees:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( 159.305, -0.25, 0, 0.25, 0, -18.111, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("DetectorHolder:rotation_degrees:z")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.4 )
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Pick"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/PickAxe:rotation_degrees")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.225 ),
+"transitions": PoolRealArray( 0.406126, 1, 0.482968 ),
+"update": 0,
+"values": [ Vector3( 65, 0, 0 ), Vector3( -18.772, 0, 0 ), Vector3( 65, 0, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Head/PickAxe:translation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.323, -0.25, 0, 0.25, 0, 0.323, -0.25, 0, 0.25, 0, 0.323, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Head/PickAxe:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.342, -0.25, 0, 0.25, 0, -0.393, -0.25, 0, 0.25, 0, -0.342, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Head/PickAxe:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -0.534, -0.25, 0, 0.25, 0, -0.605, -0.25, 0, 0.25, 0, -0.534, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0, 0.1, 0.2 )
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Head/PickAxe:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 30, 0, 0 ) ]
+}
+tracks/1/type = "bezier"
+tracks/1/path = NodePath("Head/PickAxe:translation:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"points": PoolRealArray( 0.323, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/2/type = "bezier"
+tracks/2/path = NodePath("Head/PickAxe:translation:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"points": PoolRealArray( -0.342, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/3/type = "bezier"
+tracks/3/path = NodePath("Head/PickAxe:translation:z")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"points": PoolRealArray( -0.534, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/4/type = "bezier"
+tracks/4/path = NodePath("DetectorHolder:translation:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"points": PoolRealArray( -0.472188, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/5/type = "bezier"
+tracks/5/path = NodePath("DetectorHolder:translation:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"points": PoolRealArray( 1.36276, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/6/type = "bezier"
+tracks/6/path = NodePath("DetectorHolder:translation:z")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"points": PoolRealArray( -0.140098, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/7/type = "bezier"
+tracks/7/path = NodePath("DetectorHolder:rotation_degrees:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"points": PoolRealArray( 45, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/8/type = "bezier"
+tracks/8/path = NodePath("DetectorHolder:rotation_degrees:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"points": PoolRealArray( 159.305, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+tracks/9/type = "bezier"
+tracks/9/path = NodePath("DetectorHolder:rotation_degrees:z")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"points": PoolRealArray( 0, -0.25, 0, 0.25, 0 ),
+"times": PoolRealArray( 0 )
+}
+
+[sub_resource type="CapsuleMesh" id=4]
+radius = 0.45
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+speed = 6
 
-[node name="MetalDetector" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.707107, -0.707107, 0, 0.707107, 0.707107, 0, 1.20913, -0.107381 )
+[node name="DetectorHolder" type="Spatial" parent="."]
+transform = Transform( -0.935475, 0.249886, 0.249886, 0, 0.707107, -0.707107, -0.353393, -0.661481, -0.661481, -0.472188, 1.36276, -0.140098 )
+
+[node name="MetalDetector" parent="DetectorHolder" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.0602263, 0.0716224, 0.131254 )
 
 [node name="Head" parent="." instance=ExtResource( 4 )]
 
 [node name="PickAxe" parent="Head" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.323361, -0.611709, -0.463292 )
+transform = Transform( 1, 0, 0, 0, 0.866025, -0.5, 0, 0.5, 0.866025, 0.323, -0.342, -0.534 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.929648, 0 )
@@ -26,3 +249,22 @@ shape = SubResource( 1 )
 [node name="Listener" type="Listener" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4, 0 )
 current = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/DetectMetal = SubResource( 5 )
+anims/Pick = SubResource( 2 )
+anims/RESET = SubResource( 3 )
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+material = ExtResource( 5 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Model" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.932286, 0 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[editable path="Head"]

@@ -9,7 +9,6 @@ export var y_limit := 90.0
 var mouse_axis := Vector2()
 var rot := Vector3()
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	mouse_sensitivity = mouse_sensitivity / 1000
@@ -22,7 +21,6 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		mouse_axis = event.relative
 		camera_rotation()
-
 
 func camera_rotation() -> void:
 	# Horizontal mouse look.
